@@ -24,4 +24,4 @@ Each maze successfully completed must undergo an **analysis** to ensure that eac
 
 #### Potential Applications
 
-This algorithm is suitable for use in video game applications. It was originally developed as an aspect of an iPhone video game I produced in 2013 called **Robot Attack Maze**. I have also separately extended the algorithm to include rooms and other special features that produce fully **standalone** game levels for a variety of gaming purposes.
+This algorithm is suitable for use in video game applications. It was originally developed as an aspect of an **iPhone** video game I produced in 2013 called **Robot Attack Maze**. I have also (separately from this demonstration) extended the algorithm to include rooms and other special features that produce richly detailed **standalone** game levels for an RPG game concept.
