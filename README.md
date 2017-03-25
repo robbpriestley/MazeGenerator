@@ -4,7 +4,7 @@
 
 **MazeGenerator** is a project showcasing the maze generation algorithm I designed and built using **.NET Core version 1.1** and **C#**. This demonstration project involves a **console application** generating a single maze and then outputting it to text for visualization. The text representation uses **unicode** characters to approximate the appearance of the maze.
 
-The maze generation algorithm is configurable and produces **fully-random** mazes that completely occupy square grids of any size, although larger grids will require more computing power to generate. The demonstration involves a **25 x 25** grid. The algorithm completes the maze generation task for a grid this on a modest Mac laptop in about **50 milliseconds**.
+The maze generation algorithm is configurable and produces **fully-random** mazes that completely occupy square grids of any size, although larger grids will require more computing power to generate. The demonstration involves a **25 x 25** grid. The algorithm completes the maze generation task for a grid this size on a modest Mac laptop in about **50 milliseconds**.
 
 #### Example
 
