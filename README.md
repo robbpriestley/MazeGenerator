@@ -6,7 +6,7 @@
 
 The maze generation algorithm is configurable and produces **fully-random** mazes that completely occupy square grids of any size, although larger grids will require more computing power to generate. The demonstration involves a **25 x 25** grid. The algorithm completes the maze generation task for a grid this size on a modest Mac laptop in about **50 milliseconds**.
 
-#### Example
+#### Example Output
 
 ![](http://www.digitalwizardry.ca/maze.png)
 
