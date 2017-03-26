@@ -2,9 +2,11 @@
 
 #### Overview
 
-**MazeGenerator** is a project showcasing the maze generation algorithm I designed and built using **.NET Core version 1.1** and **C#**. This demonstration project involves a **console application** generating a single maze and then outputting it to text for visualization. The text representation uses **unicode** characters to approximate the appearance of the maze.
+**MazeGenerator** is a project showcasing the maze generation algorithm I designed and built using **C# [.NET Core 1.1](https://www.microsoft.com/net/download/core)** and [**Visual Studio Code**](https://code.visualstudio.com/) running on a **Mac**. The project compiles a **console application** generating a single maze and then outputting it to text for visualization. The text representation uses **unicode** characters to approximate the appearance of the maze.
 
 The maze generation algorithm is configurable and produces **fully-random** mazes that completely occupy square grids of any size, although larger grids will require more computing power to generate. The demonstration involves a **25 x 25** grid. The algorithm completes the maze generation task for a grid this size on a modest Mac laptop in about **50 milliseconds**.
+
+This project demonstrates my software deign and coding abilities. I like to produce very clean, very maintainable, self-documenting code that includes comments helping explain the more difficult concepts. The single best example of code in this project for review purposes is `Library/Maze.cs`, although the project is presented here in its entirety and can be easily run in [**Visual Studio Code**](https://code.visualstudio.com/).
 
 #### Example Output
 
@@ -20,7 +22,7 @@ The algorithm **adapts**, recovering from common problems that prevent full grow
 
 #### Solving Mazes
 
-Each maze successfully completed must undergo an **analysis** to ensure that each cell in the maze is reachable from every other cell in the maze. This is called **solving** the maze, and it prevents "island" portions of the maze from developing independently from one another without any link between them. Solving is accomplished using a **recursive** subroutine.
+Each maze successfully completed must undergo an **analysis** to ensure that each cell in the maze is reachable from every other cell in the maze. This is called [**solving**](https://en.wikipedia.org/wiki/Maze_solving_algorithm) the maze, and it prevents "island" portions of the maze from developing independently from one another without any link between them. Solving is accomplished using a [**recursive**](https://en.wikipedia.org/wiki/Recursion_(computer_science)) subroutine.
 
 #### Potential Applications
 
