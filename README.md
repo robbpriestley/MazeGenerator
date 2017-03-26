@@ -6,7 +6,7 @@
 
 The maze generation algorithm is configurable and produces **fully-random** mazes that completely occupy square grids of any size, although larger grids will require more computing power to generate. The demonstration involves a **25 x 25** grid. The algorithm completes the maze generation task for a grid this size on a modest Mac laptop in about **50 milliseconds**.
 
-This project demonstrates my software deign and coding abilities. I like to produce very clean, very maintainable, self-documenting code that includes comments helping explain the more difficult concepts. The single best example of code in this project for review purposes is `Library/Maze.cs`, although the project is presented here in its entirety and can be easily run in [**Visual Studio Code**](https://code.visualstudio.com/).
+This project demonstrates my software deign and coding abilities. I like to produce very clean, very maintainable, **self-documenting** code that includes **comments** helping explain the more difficult concepts. The single best example of code in this project for review purposes is `Library/Maze.cs`, although the project is presented here in its entirety and can be easily run in [**Visual Studio Code**](https://code.visualstudio.com/).
 
 #### Example Output
 
