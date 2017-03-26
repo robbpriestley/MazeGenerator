@@ -10,7 +10,7 @@ This project demonstrates my software deign and coding abilities. I like to prod
 
 #### Example Output
 
-![](http://www.digitalwizardry.ca/maze.png)
+![](http://www.digitalwizardry.ca/wp-content/themes/one-pager-genesis-master/images/utility/maze.png)
 
 #### Organic Growth
 
@@ -26,4 +26,6 @@ Each maze successfully completed must undergo an **analysis** to ensure that eac
 
 #### Potential Applications
 
-This algorithm is suitable for use in video game applications. It was originally developed as an aspect of an **iPhone** video game I produced in 2013 called **Robot Attack Maze**. I have also (separately from this demonstration) extended the algorithm to include rooms and other special features that produce richly detailed **standalone** game levels for an RPG game concept.
+This algorithm is suitable for use in video game applications. It was originally developed as an aspect of an **iPhone** video game I produced in 2013 called **Robot Attack Maze** (see screenshot below). I ported that code from the original **Objective-C** to C# and have also separately extended the algorithm to include rooms and other special features that produce richly detailed **standalone** game levels for an RPG game concept.
+
+![](http://www.digitalwizardry.ca/wp-content/themes/one-pager-genesis-master/images/utility/RobotAttackMaze.jpg)
