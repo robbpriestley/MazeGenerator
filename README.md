@@ -30,6 +30,6 @@ This algorithm is suitable for use in video game applications. It was originally
 
 #### Further Information
 
-For further information or for business inquiries, please contact me via my website at [www.digitalwizardry.com](http://www.digitalwizardry.com).
+For further information or for business inquiries, please contact me via my website at [www.digitalwizardry.ca](http://www.digitalwizardry.ca).
 
 ![Robot Attack Maze iPhone Game Screenshot](http://www.digitalwizardry.ca/wp-content/themes/one-pager-genesis-master/images/utility/RobotAttackMaze.jpg)
