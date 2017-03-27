@@ -130,10 +130,10 @@ namespace DigitalWizardry.Maze
 		public static readonly Type DeadD = new Type();		       // Dead End Down                
 		public static readonly Type DeadL = new Type();		       // Dead End Left                
 		public static readonly Type DeadR = new Type();		       // Dead End Right 
-		public static readonly Type DeadexU = new Type();           // Dead End Exit Up                  
-		public static readonly Type DeadexD = new Type();           // Dead End Exit Down                
-		public static readonly Type DeadexL = new Type();           // Dead End Exit Left                
-		public static readonly Type DeadexR = new Type();           // Dead End Exit Right 
+		public static readonly Type DeadexU = new Type();          // Dead End Exit Up                  
+		public static readonly Type DeadexD = new Type();          // Dead End Exit Down                
+		public static readonly Type DeadexL = new Type();          // Dead End Exit Left                
+		public static readonly Type DeadexR = new Type();          // Dead End Exit Right 
 		
 		public static void Initialize()
 		{
