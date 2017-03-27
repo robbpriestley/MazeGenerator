@@ -2,12 +2,12 @@ namespace DigitalWizardry.Maze
 {	
 	public class Coords
 	{	
-		public int X;
-		public int Y;
-		public bool AdjacentEdgeUp;
-		public bool AdjacentEdgeDown;
-		public bool AdjacentEdgeLeft;
-		public bool AdjacentEdgeRight;
+		public int X { get; set; }
+		public int Y { get; set; }
+		public bool AdjacentEdgeUp { get; set; }
+		public bool AdjacentEdgeDown { get; set; }
+		public bool AdjacentEdgeLeft { get; set; }
+		public bool AdjacentEdgeRight { get; set; }
 
 		public Direction Direction;  // A direction is needed for convenience sometimes.
 
