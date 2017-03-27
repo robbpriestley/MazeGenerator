@@ -42,19 +42,19 @@ namespace DigitalWizardry.Maze
 			{
 				return false;
 			}
-			else if (direction == Direction.Up && this.ConnectsUp && otherCell.ConnectsDown)
+			else if (direction == Direction.Up && ConnectsUp && otherCell.ConnectsDown)
 			{
 				return true;
 			}
-			else if (direction == Direction.Down && this.ConnectsDown && otherCell.ConnectsUp)
+			else if (direction == Direction.Down && ConnectsDown && otherCell.ConnectsUp)
 			{
 				return true;
 			}
-			else if (direction == Direction.Left && this.ConnectsLeft && otherCell.ConnectsRight)
+			else if (direction == Direction.Left && ConnectsLeft && otherCell.ConnectsRight)
 			{
 				return true;
 			}
-			else if (direction == Direction.Right && this.ConnectsRight && otherCell.ConnectsLeft)
+			else if (direction == Direction.Right && ConnectsRight && otherCell.ConnectsLeft)
 			{
 				return true;
 			}
@@ -77,32 +77,32 @@ namespace DigitalWizardry.Maze
 			}
 			else if (direction == Direction.Up)
 			{
-				if ((this.ConnectsUp && otherCell.ConnectsDown) || 
-					(!this.ConnectsUp && !otherCell.ConnectsDown))
+				if ((ConnectsUp && otherCell.ConnectsDown) || 
+					(!ConnectsUp && !otherCell.ConnectsDown))
 				{
 					return true;
 				}
 			}
 			else if (direction == Direction.Down)
 			{
-				if ((this.ConnectsDown && otherCell.ConnectsUp) || 
-					(!this.ConnectsDown && !otherCell.ConnectsUp))
+				if ((ConnectsDown && otherCell.ConnectsUp) || 
+					(!ConnectsDown && !otherCell.ConnectsUp))
 				{
 					return true;
 				}
 			}
 			else if (direction == Direction.Left)
 			{
-				if ((this.ConnectsLeft && otherCell.ConnectsRight) || 
-					(!this.ConnectsLeft && !otherCell.ConnectsRight))
+				if ((ConnectsLeft && otherCell.ConnectsRight) || 
+					(!ConnectsLeft && !otherCell.ConnectsRight))
 				{
 					return true;
 				}
 			}
 			else if (direction == Direction.Right)
 			{
-				if ((this.ConnectsRight && otherCell.ConnectsLeft) || 
-					(!this.ConnectsRight && !otherCell.ConnectsLeft))
+				if ((ConnectsRight && otherCell.ConnectsLeft) || 
+					(!ConnectsRight && !otherCell.ConnectsLeft))
 				{
 					return true;
 				}

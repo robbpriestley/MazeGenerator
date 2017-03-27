@@ -11,22 +11,22 @@ namespace DigitalWizardry.Maze
 	
 	public class Maze
 	{
-		private int Size;                        // The length of the X and Y dimensions of the square grid.
-		private List<Cell> Grid;                 // Master grid data structure, a "simulated 2-D array".
-		private Random R;                        // Re-usable random number generator.
-		private Cell EmptyCell;                  // This empty cell instance is re-used everywhere. It exists outside of "normal space" because its coords are -1,-1.
-		private Coords StartCoords;               // Coords where the first cell is added to the maze grid.
-		private int SequenceNumber;               // Used when solving the maze to "stamp" cells with a sequence number.
-		private int Iterations;                   // Number of discarded attempts before arriving at a completed maze.
-		private TimeSpan ElapsedTime;             // How long in total did it take to build this maze?
+		private int _size;                        // The length of the X and Y dimensions of the square grid.
+		private List<Cell> _grid;                 // Master grid data structure, a "simulated 2-D array".
+		private Random _r;                        // Re-usable random number generator.
+		private Cell _emptyCell;                  // This empty cell instance is re-used everywhere. It exists outside of "normal space" because its coords are -1,-1.
+		private Coords _startCoords;               // Coords where the first cell is added to the maze grid.
+		private int _sequenceNumber;               // Used when solving the maze to "stamp" cells with a sequence number.
+		private int _iterations;                   // Number of discarded attempts before arriving at a completed maze.
+		private TimeSpan _elapsedTime;             // How long in total did it take to build this maze?
 
 		public Maze(int size)
 		{
 			Types.Initialize();  // Static class initialize.
 			
-			this.Size = size;
-			this.R = new Random();
-			this.EmptyCell = new Cell(-1, -1, Types.EmptyCell);
+			_size = size;
+			_r = new Random();
+			_emptyCell = new Cell(-1, -1, Types.EmptyCell);
 
 			Start();
 		}
@@ -40,7 +40,7 @@ namespace DigitalWizardry.Maze
 			{
 				try 
 				{
-					this.Iterations++;
+					_iterations++;
 					
 					Initialize();
 					GenerateMaze();
@@ -54,24 +54,24 @@ namespace DigitalWizardry.Maze
 
 			} while (!mazeComplete);
 
-			this.ElapsedTime = DateTime.Now - start;
+			_elapsedTime = DateTime.Now - start;
 		}
 
 		private void Initialize()
 		{
-			this.Grid = new List<Cell>();
+			_grid = new List<Cell>();
 
 			// Fill in each cell with the "empty cell" object.
-			for (int i = 0; i < this.Size * this.Size; i++)
+			for (int i = 0; i < _size * _size; i++)
 			{
-				this.Grid.Add(this.EmptyCell);
+				_grid.Add(_emptyCell);
 			}
 
-			this.StartCoords = new Coords(0, 0, this.Size);
-			List<Type> types = Types.GetTypes(this.StartCoords);
+			_startCoords = new Coords(0, 0, _size);
+			List<Type> types = Types.GetTypes(_startCoords);
  			Type newType = RandomCellType(types);
- 			Cell newCell = new Cell(StartCoords.X, StartCoords.Y, newType);
- 			SetCellValue(StartCoords.X, StartCoords.Y, newCell);
+ 			Cell newCell = new Cell(_startCoords.X, _startCoords.Y, newType);
+ 			SetCellValue(_startCoords.X, _startCoords.Y, newCell);
 		}
 
 		private void GenerateMaze()
@@ -84,9 +84,9 @@ namespace DigitalWizardry.Maze
 			{
 				modified = false;
 				
-				for (int y = 0; y < this.Size; y++) 
+				for (int y = 0; y < _size; y++) 
 				{
-					for (int x = 0; x < this.Size; x++) 
+					for (int x = 0; x < _size; x++) 
 					{
 						cell = CellAt(x, y);
 						
@@ -152,7 +152,7 @@ namespace DigitalWizardry.Maze
 		{
 			Cell cellUp, cellDown, cellLeft, cellRight;
 			
-			if (cell.Y + 1 < this.Size)
+			if (cell.Y + 1 < _size)
 			{
 				cellUp = CellAt(cell.X, cell.Y + 1);
 
@@ -185,7 +185,7 @@ namespace DigitalWizardry.Maze
 				}
 			}
 			
-			if (cell.X + 1 < this.Size)
+			if (cell.X + 1 < _size)
 			{
 				cellRight = CellAt(cell.X + 1, cell.Y);
 
@@ -213,11 +213,11 @@ namespace DigitalWizardry.Maze
 			// random and return it. If there are no potentials at all, return null.
 			
 			// Cell above.
-			if (cell.Type.ConnectsUp && cell.Y + 1 < this.Size)
+			if (cell.Type.ConnectsUp && cell.Y + 1 < _size)
 			{
 				if (CellAt(cell.X, cell.Y + 1).Type.IsEmpty)
 				{
-					coordPotentials.Add(new Coords(cell.X, cell.Y + 1, this.Size));
+					coordPotentials.Add(new Coords(cell.X, cell.Y + 1, _size));
 				}
 			}
 			
@@ -226,7 +226,7 @@ namespace DigitalWizardry.Maze
 			{
 				if (CellAt(cell.X, cell.Y - 1).Type.IsEmpty)
 				{
-					coordPotentials.Add(new Coords(cell.X, cell.Y - 1, this.Size));
+					coordPotentials.Add(new Coords(cell.X, cell.Y - 1, _size));
 				}
 			}
 		
@@ -235,16 +235,16 @@ namespace DigitalWizardry.Maze
 			{
 				if (CellAt(cell.X - 1, cell.Y).Type.IsEmpty)
 				{
-					coordPotentials.Add(new Coords(cell.X - 1, cell.Y, this.Size));
+					coordPotentials.Add(new Coords(cell.X - 1, cell.Y, _size));
 				}
 			}
 			
 			// Cell right.
-			if (cell.Type.ConnectsRight && cell.X + 1 < this.Size)
+			if (cell.Type.ConnectsRight && cell.X + 1 < _size)
 			{
 				if (CellAt(cell.X + 1, cell.Y).Type.IsEmpty)
 				{
-					coordPotentials.Add(new Coords(cell.X + 1, cell.Y, this.Size));
+					coordPotentials.Add(new Coords(cell.X + 1, cell.Y, _size));
 				}
 			}
 		
@@ -254,7 +254,7 @@ namespace DigitalWizardry.Maze
 			}
 			else
 			{
-				int randomIndex = this.R.Next(coordPotentials.Count);
+				int randomIndex = _r.Next(coordPotentials.Count);
 				return coordPotentials[randomIndex];
 			}
 		}
@@ -272,7 +272,7 @@ namespace DigitalWizardry.Maze
 				total += type.Weight;
 			}
 			
-			int threshold = this.R.Next(total);
+			int threshold = _r.Next(total);
 			
 			Type selected = null;
 
@@ -294,7 +294,7 @@ namespace DigitalWizardry.Maze
 		private Cell RandomForceGrowthCell(List<Cell> forceGrowthCells)
 		{
 			// Pick a cell randomly, and also eliminate it as a future candidate...
-			Cell cell = forceGrowthCells[this.R.Next(forceGrowthCells.Count)];
+			Cell cell = forceGrowthCells[_r.Next(forceGrowthCells.Count)];
 			forceGrowthCells.Remove(cell);
 			return cell;
 		}
@@ -312,7 +312,7 @@ namespace DigitalWizardry.Maze
 			
 			Cell cellUp, cellDown, cellLeft, cellRight;
 			
-			if (coords.Y + 1 < this.Size)
+			if (coords.Y + 1 < _size)
 			{
 				cellUp = CellAt(coords.X, coords.Y + 1);
 				if (!newCellType.CompatibleWith(cellUp.Type, Direction.Up))
@@ -339,7 +339,7 @@ namespace DigitalWizardry.Maze
 				}
 			}
 			
-			if (coords.X + 1 < this.Size)
+			if (coords.X + 1 < _size)
 			{
 				cellRight = CellAt(coords.X + 1, coords.Y);
 				if (!newCellType.CompatibleWith(cellRight.Type, Direction.Right))
@@ -383,13 +383,13 @@ namespace DigitalWizardry.Maze
 
 		private Cell CellAt(int x, int y)
 		{
-			return this.Grid[this.Size * x + y];
+			return _grid[_size * x + y];
 		}
 
 		private void SetCellValue(int x, int y, Cell cell)
 		{
-			int i = this.Size * x + y;
-			this.Grid[i] = cell;
+			int i = _size * x + y;
+			_grid[i] = cell;
 			RecordNewAttachment(cell);
 		}
 
@@ -401,8 +401,8 @@ namespace DigitalWizardry.Maze
 			
 			while (coords == null) 
 			{
-				int x = this.R.Next(this.Size);
-				int y = this.R.Next(this.Size);
+				int x = _r.Next(_size);
+				int y = _r.Next(_size);
 				
 				Cell cell = CellAt(x, y);
 				
@@ -410,14 +410,14 @@ namespace DigitalWizardry.Maze
 				{
 					if (cell.Type.IsEmpty) 
 					{
-						coords = new Coords(x, y, this.Size);
+						coords = new Coords(x, y, _size);
 					}
 				}
 				else  // Cell must be occupied.
 				{
 					if (!cell.Type.IsEmpty) 
 					{
-						coords = new Coords(x, y, this.Size);
+						coords = new Coords(x, y, _size);
 					}
 				}
 			}
@@ -441,7 +441,7 @@ namespace DigitalWizardry.Maze
 			while (!success && cells.Count > 0) 
 			{
 				Cell cell = RandomForceGrowthCell(cells);
-				Coords coords = new Coords(cell.X, cell.Y, this.Size);
+				Coords coords = new Coords(cell.X, cell.Y, _size);
 				
 				// Attempt to replace it from the standard types.
 				List<Type> types = Types.GetTypes(coords);
@@ -481,7 +481,7 @@ namespace DigitalWizardry.Maze
 		{
 			List<Cell> cells = new List<Cell>();
 			
-			foreach (Cell cell in this.Grid)
+			foreach (Cell cell in _grid)
 			{
 				if (cell.Type.ForceGrowthCompatible && !cell.Type.IsEmpty) 
 				{
@@ -499,13 +499,13 @@ namespace DigitalWizardry.Maze
 		// Ensure that every cell in the maze is "reachable". If not, start over.
 		private void MazeSolve()
 		{
-			this.SequenceNumber = 0;
+			_sequenceNumber = 0;
 			
-			Solve(CellAt(this.StartCoords.X, this.StartCoords.Y));
+			Solve(CellAt(_startCoords.X, _startCoords.Y));
 			
-			for (int y = 0; y < this.Size; y++) 
+			for (int y = 0; y < _size; y++) 
 			{
-				for (int x = 0; x < this.Size; x++)
+				for (int x = 0; x < _size; x++)
 				{
 					if (!CellAt(x, y).Visited)
 					{
@@ -518,13 +518,13 @@ namespace DigitalWizardry.Maze
 		// Recursive solve algorithm.
 		private void Solve(Cell cell)
 		{
-			this.SequenceNumber++;
+			_sequenceNumber++;
 
 			cell.Visited = true;
-			cell.Sequence = this.SequenceNumber;
+			cell.Sequence = _sequenceNumber;
 			
 			// Cell above.
-			if (cell.Type.TraversableUp && cell.Y + 1 < this.Size)
+			if (cell.Type.TraversableUp && cell.Y + 1 < _size)
 			{
 				Cell cellAbove = CellAt(cell.X, cell.Y + 1);
 				
@@ -557,7 +557,7 @@ namespace DigitalWizardry.Maze
 			}
 			
 			// Cell right.
-			if (cell.Type.TraversableRight && cell.X + 1 < this.Size)
+			if (cell.Type.TraversableRight && cell.X + 1 < _size)
 			{
 				Cell cellRight = CellAt(cell.X + 1, cell.Y);
 				
@@ -575,9 +575,9 @@ namespace DigitalWizardry.Maze
 		{
 			int filledCellCount = 0;
 			
-			for (int x = 0; x < this.Size; x++)
+			for (int x = 0; x < _size; x++)
 			{
-				for (int y = 0; y < this.Size; y++) 
+				for (int y = 0; y < _size; y++) 
 				{
 					if (!CellAt(x, y).Type.IsEmpty)
 					{
@@ -586,7 +586,7 @@ namespace DigitalWizardry.Maze
 				}
 			}
 			
-			return (filledCellCount * 100) / (this.Size * this.Size);
+			return (filledCellCount * 100) / (_size * _size);
 		}
 		
 		public string VisualizeAsText()
@@ -597,11 +597,11 @@ namespace DigitalWizardry.Maze
 			StringBuilder line, grid = new StringBuilder();
 	
 			// Because it is console printing, start with the "top" of the maze, and work down.
-			for (int y = this.Size - 1; y >= 0; y--) 
+			for (int y = _size - 1; y >= 0; y--) 
 			{
 				line = new StringBuilder();
 				
-				for (x = 0; x < this.Size * 2; x++) 
+				for (x = 0; x < _size * 2; x++) 
 				{
 					cell = CellAt(x / 2, y);
 					line.Append(x % 2 == 0 ? cell.Type.TextRep : cell.Type.TextRep2);
@@ -616,7 +616,7 @@ namespace DigitalWizardry.Maze
 			
 			grid.Append("  ");
 			
-			for (x = 0; x < this.Size * 2; x++) 
+			for (x = 0; x < _size * 2; x++) 
 			{
 				if (x % 2 == 0)
 					grid.Append((x/2)/10);
@@ -626,7 +626,7 @@ namespace DigitalWizardry.Maze
 			
 			grid.Append("\n  ");
 			
-			for (x = 0; x < this.Size * 2; x++) 
+			for (x = 0; x < _size * 2; x++) 
 			{
 				if (x % 2 == 0)
 					grid.Append((x/2) % 10);
@@ -640,8 +640,8 @@ namespace DigitalWizardry.Maze
 		public string BuildStats()
 		{
 			return Environment.NewLine +
-			       "Iterations: " + this.Iterations.ToString() + Environment.NewLine +
-				   "Elapsed Time: " + this.ElapsedTime.ToString();
+			       "Iterations: " + _iterations.ToString() + Environment.NewLine +
+				   "Elapsed Time: " + _elapsedTime.ToString();
 		}
 
 		#endregion
