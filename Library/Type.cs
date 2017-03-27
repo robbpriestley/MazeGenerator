@@ -6,29 +6,29 @@ namespace DigitalWizardry.Maze
 	{
 		// *** BEGIN CONNECTS MEMBERS ***
 		// Connects: determines if one cell is capable of being mated to another.
-		public bool ConnectsUp;
-		public bool ConnectsDown;
-		public bool ConnectsLeft;
-		public bool ConnectsRight;
+		public bool ConnectsUp { get; set; }
+		public bool ConnectsDown { get; set; }
+		public bool ConnectsLeft { get; set; }
+		public bool ConnectsRight { get; set; }
 		// *** END CONNECTS MEMBERS ***
 		// *** BEGIN TRAVERSABLE MEMBERS ***
 		// Traversable: determines if it would be possible to move from one cell to another.
-		public bool TraversableUp;
-		public bool TraversableDown;
-		public bool TraversableLeft;
-		public bool TraversableRight;
+		public bool TraversableUp { get; set; }
+		public bool TraversableDown { get; set; }
+		public bool TraversableLeft { get; set; }
+		public bool TraversableRight { get; set; }
 		// *** END TRAVERSABLE MEMBERS ***
 		// *** BEGIN DESCRIPTIVE MEMBERS ***
-		public bool IsEmpty;
-		public bool IsJunction;
-		public bool IsDeadEnd;
-		public bool ForceGrowthCompatible;       // Used when a cell is substituted for another to increase maze fill.
+		public bool IsEmpty { get; set; }
+		public bool IsJunction { get; set; }
+		public bool IsDeadEnd { get; set; }
+		public bool ForceGrowthCompatible { get; set; }       // Used when a cell is substituted for another to increase maze fill.
 		// *** END DESCRIPTIVE MEMBERS ***
 		// *** BEGIN UTILITY MEMBERS ***
-		public int Weight;                       // Influences the selection when types are being randomly determined.
-		public string TextRep;                   // Primary character used to represent a type in text.
-		public string TextRep2;                  // Used for better rendering of the text representation, which appears "squished" in the horizontal dimension.
-		public int InitialAvailableConnections;  // Used when generating the maze to determine if other cells can be attached to a target cell.
+		public int Weight { get; set; }                       // Influences the selection when types are being randomly determined.
+		public string TextRep { get; set; }                   // Primary character used to represent a type in text.
+		public string TextRep2 { get; set; }                  // Used for better rendering of the text representation, which appears "squished" in the horizontal dimension.
+		public int InitialAvailableConnections { get; set; }  // Used when generating the maze to determine if other cells can be attached to a target cell.
 		// *** END UTILITY MEMBERS ***
 
 		public Type()
@@ -114,26 +114,26 @@ namespace DigitalWizardry.Maze
 
 	public static class Types
 	{
-		public static Type EmptyCell = new Type();	       // Empty, i.e. unused.
-		public static Type Vert = new Type();		       // Vertical Corridor            
-		public static Type Horiz = new Type();		       // Horizontal Corridor           
-		public static Type Inter = new Type();		       // Intersection                 
-		public static Type JuncULR = new Type();	       // Junction Up Left Right       
-		public static Type JuncUDR = new Type();	       // Junction Up Down Right       
-		public static Type JuncDLR = new Type();	       // Junction Down Left Right     
-		public static Type JuncUDL = new Type();	       // Junction Up Down Left        
-		public static Type ElbUR = new Type();		       // Elbow Up Right               
-		public static Type ElbDR = new Type();		       // Elbow Down Right             
-		public static Type ElbDL = new Type();		       // Elbow Down Left              
-		public static Type ElbUL = new Type();		       // Elbow Up Left                
-		public static Type DeadU = new Type();		       // Dead End Up                  
-		public static Type DeadD = new Type();		       // Dead End Down                
-		public static Type DeadL = new Type();		       // Dead End Left                
-		public static Type DeadR = new Type();		       // Dead End Right 
-		public static Type DeadexU = new Type();           // Dead End Exit Up                  
-		public static Type DeadexD = new Type();           // Dead End Exit Down                
-		public static Type DeadexL = new Type();           // Dead End Exit Left                
-		public static Type DeadexR = new Type();           // Dead End Exit Right 
+		public static readonly Type EmptyCell = new Type();	       // Empty, i.e. unused.
+		public static readonly Type Vert = new Type();		       // Vertical Corridor            
+		public static readonly Type Horiz = new Type();		       // Horizontal Corridor           
+		public static readonly Type Inter = new Type();		       // Intersection                 
+		public static readonly Type JuncULR = new Type();	       // Junction Up Left Right       
+		public static readonly Type JuncUDR = new Type();	       // Junction Up Down Right       
+		public static readonly Type JuncDLR = new Type();	       // Junction Down Left Right     
+		public static readonly Type JuncUDL = new Type();	       // Junction Up Down Left        
+		public static readonly Type ElbUR = new Type();		       // Elbow Up Right               
+		public static readonly Type ElbDR = new Type();		       // Elbow Down Right             
+		public static readonly Type ElbDL = new Type();		       // Elbow Down Left              
+		public static readonly Type ElbUL = new Type();		       // Elbow Up Left                
+		public static readonly Type DeadU = new Type();		       // Dead End Up                  
+		public static readonly Type DeadD = new Type();		       // Dead End Down                
+		public static readonly Type DeadL = new Type();		       // Dead End Left                
+		public static readonly Type DeadR = new Type();		       // Dead End Right 
+		public static readonly Type DeadexU = new Type();           // Dead End Exit Up                  
+		public static readonly Type DeadexD = new Type();           // Dead End Exit Down                
+		public static readonly Type DeadexL = new Type();           // Dead End Exit Left                
+		public static readonly Type DeadexR = new Type();           // Dead End Exit Right 
 		
 		public static void Initialize()
 		{
