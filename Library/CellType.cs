@@ -6,29 +6,37 @@ namespace DigitalWizardry.Maze
 	{
 		// *** BEGIN CONNECTS MEMBERS ***
 		// Connects: determines if one cell is capable of being mated to another.
+		
 		public bool ConnectsUp { get; set; }
 		public bool ConnectsDown { get; set; }
 		public bool ConnectsLeft { get; set; }
 		public bool ConnectsRight { get; set; }
+		
 		// *** END CONNECTS MEMBERS ***
 		// *** BEGIN TRAVERSABLE MEMBERS ***
 		// Traversable: determines if it would be possible to move from one cell to another.
+		
 		public bool TraversableUp { get; set; }
 		public bool TraversableDown { get; set; }
 		public bool TraversableLeft { get; set; }
 		public bool TraversableRight { get; set; }
+		
 		// *** END TRAVERSABLE MEMBERS ***
 		// *** BEGIN DESCRIPTIVE MEMBERS ***
+		
 		public bool IsEmpty { get; set; }
 		public bool IsJunction { get; set; }
 		public bool IsDeadEnd { get; set; }
 		public bool ForceGrowthCompatible { get; set; }       // Used when a cell is substituted for another to increase maze fill.
+		
 		// *** END DESCRIPTIVE MEMBERS ***
 		// *** BEGIN UTILITY MEMBERS ***
+		
 		public int Weight { get; set; }                       // Influences the selection when types are being randomly determined.
 		public string TextRep { get; set; }                   // Primary character used to represent a type in text.
 		public string TextRep2 { get; set; }                  // Used for better rendering of the text representation, which appears "squished" in the horizontal dimension.
 		public int InitialAvailableConnections { get; set; }  // Used when generating the maze to determine if other cells can be attached to a target cell.
+		
 		// *** END UTILITY MEMBERS ***
 
 		public CellType()
@@ -115,6 +123,7 @@ namespace DigitalWizardry.Maze
 	public class CellTypes
 	{
 		// *** BEGIN FIELD DECLARATIONS ***
+		
 		private static readonly CellType _emptyCell;
 		private static readonly CellType _vert;
 		private static readonly CellType _horiz;
@@ -135,8 +144,10 @@ namespace DigitalWizardry.Maze
 		private static readonly CellType _deadexD;
 		private static readonly CellType _deadexL;
 		private static readonly CellType _deadexR;
+		
 		// *** END FIELD DECLARATIONS ***
 		// *** BEGIN PROPERTY DECLARATIONS ***
+		
 		public static CellType EmptyCell { get { return _emptyCell; } }  // Empty, i.e. unused.
 		public static CellType Vert { get { return _vert; } }            // Vertical Corridor            
 		public static CellType Horiz { get { return _horiz; } }          // Horizontal Corridor           
@@ -157,6 +168,7 @@ namespace DigitalWizardry.Maze
 		public static CellType DeadexD { get { return _deadexD; } }      // Dead End Exit Down                
 		public static CellType DeadexL { get { return _deadexL; } }      // Dead End Exit Left                
 		public static CellType DeadexR { get { return _deadexR; } }      // Dead End Exit Right 
+		
 		// *** END PROPERTY DECLARATIONS ***
 		
 		static CellTypes()
