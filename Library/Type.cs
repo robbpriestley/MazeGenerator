@@ -112,29 +112,79 @@ namespace DigitalWizardry.Maze
 		}
 	}
 
-	public static class Types
+	public class Types
 	{
-		public static readonly Type EmptyCell = new Type();	       // Empty, i.e. unused.
-		public static readonly Type Vert = new Type();		       // Vertical Corridor            
-		public static readonly Type Horiz = new Type();		       // Horizontal Corridor           
-		public static readonly Type Inter = new Type();		       // Intersection                 
-		public static readonly Type JuncULR = new Type();	       // Junction Up Left Right       
-		public static readonly Type JuncUDR = new Type();	       // Junction Up Down Right       
-		public static readonly Type JuncDLR = new Type();	       // Junction Down Left Right     
-		public static readonly Type JuncUDL = new Type();	       // Junction Up Down Left        
-		public static readonly Type ElbUR = new Type();		       // Elbow Up Right               
-		public static readonly Type ElbDR = new Type();		       // Elbow Down Right             
-		public static readonly Type ElbDL = new Type();		       // Elbow Down Left              
-		public static readonly Type ElbUL = new Type();		       // Elbow Up Left                
-		public static readonly Type DeadU = new Type();		       // Dead End Up                  
-		public static readonly Type DeadD = new Type();		       // Dead End Down                
-		public static readonly Type DeadL = new Type();		       // Dead End Left                
-		public static readonly Type DeadR = new Type();		       // Dead End Right 
-		public static readonly Type DeadexU = new Type();          // Dead End Exit Up                  
-		public static readonly Type DeadexD = new Type();          // Dead End Exit Down                
-		public static readonly Type DeadexL = new Type();          // Dead End Exit Left                
-		public static readonly Type DeadexR = new Type();          // Dead End Exit Right 
+		// *** BEGIN FIELD DECLARATIONS ***
+		private static readonly Type _emptyCell;
+		private static readonly Type _vert;
+		private static readonly Type _horiz;
+		private static readonly Type _inter;
+		private static readonly Type _juncULR;
+		private static readonly Type _juncUDR;
+		private static readonly Type _juncDLR;
+		private static readonly Type _juncUDL;
+		private static readonly Type _elbUR;
+		private static readonly Type _elbDR;
+		private static readonly Type _elbDL;
+		private static readonly Type _elbUL;
+		private static readonly Type _deadU;
+		private static readonly Type _deadD;
+		private static readonly Type _deadL;
+		private static readonly Type _deadR;
+		private static readonly Type _deadexU;
+		private static readonly Type _deadexD;
+		private static readonly Type _deadexL;
+		private static readonly Type _deadexR;
+		// *** END FIELD DECLARATIONS ***
+		// *** BEGIN PROPERTY DECLARATIONS ***
+		public static Type EmptyCell { get { return _emptyCell; } }  // Empty, i.e. unused.
+		public static Type Vert { get { return _vert; } }            // Vertical Corridor            
+		public static Type Horiz { get { return _horiz; } }          // Horizontal Corridor           
+		public static Type Inter { get { return _inter; } }          // Intersection                 
+		public static Type JuncULR { get { return _juncULR; } }      // Junction Up Left Right       
+		public static Type JuncUDR { get { return _juncUDR; } }      // Junction Up Down Right       
+		public static Type JuncDLR { get { return _juncDLR; } }      // Junction Down Left Right     
+		public static Type JuncUDL { get { return _juncUDL; } }      // Junction Up Down Left        
+		public static Type ElbUR { get { return _elbUR; } }          // Elbow Up Right               
+		public static Type ElbDR { get { return _elbDR; } }          // Elbow Down Right             
+		public static Type ElbDL { get { return _elbDL; } }          // Elbow Down Left              
+		public static Type ElbUL { get { return _elbUL; } }          // Elbow Up Left                
+		public static Type DeadU { get { return _deadU; } }          // Dead End Up                  
+		public static Type DeadD { get { return _deadD; } }          // Dead End Down                
+		public static Type DeadL { get { return _deadL; } }          // Dead End Left                
+		public static Type DeadR { get { return _deadR; } }          // Dead End Right 
+		public static Type DeadexU { get { return _deadexU; } }      // Dead End Exit Up                  
+		public static Type DeadexD { get { return _deadexD; } }      // Dead End Exit Down                
+		public static Type DeadexL { get { return _deadexL; } }      // Dead End Exit Left                
+		public static Type DeadexR { get { return _deadexR; } }      // Dead End Exit Right 
+		// *** END PROPERTY DECLARATIONS ***
 		
+		static Types()
+		{
+			_emptyCell = new Type();
+			_vert = new Type();
+			_horiz = new Type();
+			_inter = new Type();
+			_juncULR = new Type();
+			_juncUDR = new Type();
+			_juncDLR = new Type();
+			_juncUDL = new Type();
+			_elbUR = new Type();
+			_elbDR = new Type();
+			_elbDL = new Type();
+			_elbUL = new Type();
+			_deadU = new Type();
+			_deadD = new Type();
+			_deadL = new Type();
+			_deadR = new Type();
+			_deadexU = new Type();
+			_deadexD = new Type();
+			_deadexL = new Type();
+			_deadexR = new Type();
+
+			Initialize();  // Static class initialize.
+		}
+
 		public static void Initialize()
 		{
 			// *** BEGIN SPECIAL CELLS ***

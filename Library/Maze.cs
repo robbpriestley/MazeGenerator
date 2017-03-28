@@ -21,9 +21,7 @@ namespace DigitalWizardry.Maze
 		private TimeSpan _elapsedTime;             // How long in total did it take to build this maze?
 
 		public Maze(int size)
-		{
-			Types.Initialize();  // Static class initialize.
-			
+		{			
 			_size = size;
 			_r = new Random();
 			_emptyCell = new Cell(-1, -1, Types.EmptyCell);
