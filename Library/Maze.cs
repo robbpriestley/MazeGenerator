@@ -24,7 +24,7 @@ namespace DigitalWizardry.Maze
 		{			
 			_size = size;
 			_r = new Random();
-			_emptyCell = new Cell(-1, -1, Types.EmptyCell);
+			_emptyCell = new Cell(-1, -1, CellTypes.EmptyCell);
 
 			Start();
 		}
@@ -66,8 +66,8 @@ namespace DigitalWizardry.Maze
 			}
 
 			_startCoords = new Coords(0, 0, _size);
-			List<Type> types = Types.GetTypes(_startCoords);
- 			Type newType = RandomCellType(types);
+			List<CellType> types = CellTypes.GetTypes(_startCoords);
+ 			CellType newType = RandomCellType(types);
  			Cell newCell = new Cell(_startCoords.X, _startCoords.Y, newType);
  			SetCellValue(_startCoords.X, _startCoords.Y, newCell);
 		}
@@ -114,11 +114,11 @@ namespace DigitalWizardry.Maze
 			if (coords != null)
 			{
 				// Get a disposable array of constructed corridor cell types.
-				List<Type> types = Types.GetTypes(coords);
+				List<CellType> types = CellTypes.GetTypes(coords);
 				
 				// Choose a new cell type to attach.
 				Cell newCell = null;
-				Type newType = null;
+				CellType newType = null;
 				
 				while (newCell == null) 
 				{
@@ -257,7 +257,7 @@ namespace DigitalWizardry.Maze
 			}
 		}
 
-		private Type RandomCellType(List<Type> types)
+		private CellType RandomCellType(List<CellType> types)
 		{
 			// Pick a cell type randomly, and also eliminate it as a candidate for the current cell to avoid 
 			// re-testing it in the future if it is rejected. Types have weights, so some are more likely to 
@@ -265,16 +265,16 @@ namespace DigitalWizardry.Maze
 			
 			int total = 0;
 			
-			foreach (Type type in types)
+			foreach (CellType type in types)
 			{
 				total += type.Weight;
 			}
 			
 			int threshold = _r.Next(total);
 			
-			Type selected = null;
+			CellType selected = null;
 
-			foreach (Type type in types)
+			foreach (CellType type in types)
 			{
 				selected = type;
 				threshold -= type.Weight;
@@ -303,7 +303,7 @@ namespace DigitalWizardry.Maze
 
 		// With "coords" representing the new, empty maze location, check that each of the adjacent cells 
 		// is compatible with the proposed (randomly determined) new cell type.
-		private bool TypeCompatibleWithAdjacentCells(Type newCellType, Coords coords)
+		private bool TypeCompatibleWithAdjacentCells(CellType newCellType, Coords coords)
 		{
 			// This is an innocent-until-proven guilty scenario. However, if any of the cells is proven to be
 			// incompatible, that's enough to eliminate it as a prospect.
@@ -433,7 +433,7 @@ namespace DigitalWizardry.Maze
 			bool success = false;
 			bool typeMatch = false;
 			
-			Type newType = null;
+			CellType newType = null;
 			List<Cell> cells = ForceGrowthCells();
 			
 			while (!success && cells.Count > 0) 
@@ -442,7 +442,7 @@ namespace DigitalWizardry.Maze
 				Coords coords = new Coords(cell.X, cell.Y, _size);
 				
 				// Attempt to replace it from the standard types.
-				List<Type> types = Types.GetTypes(coords);
+				List<CellType> types = CellTypes.GetTypes(coords);
 				types.Remove(cell.Type);  // ...but replace it with something different.
 				
 				while (!typeMatch) 
