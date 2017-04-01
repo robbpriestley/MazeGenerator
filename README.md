@@ -4,7 +4,7 @@
 
 **MazeGenerator** is a project demonstrating the maze generation algorithm I designed and built using **C# [.NET Core 1.1](https://www.microsoft.com/net/download/core)** and [**Visual Studio Code**](https://code.visualstudio.com/) (running on a **Mac**). The project compiles a **console application** which generates a single maze and then outputs it to text for visualization. The text representation uses **unicode** characters to approximate the appearance of the maze.
 
-The maze generation algorithm is configurable and produces **fully-random** mazes that completely occupy square grids of any size. The demonstration involves a **25 x 25** grid. The algorithm completes the maze generation task for a grid this size on a modest Mac laptop in about **50 milliseconds**. Larger grids will require more time and computing power to generate.
+The maze generation algorithm is configurable and produces **fully-random** mazes that completely occupy  grids with variable dimensions. The demonstration involves a **25 x 25** grid. The algorithm completes the maze generation task for a grid this size on a modest Mac laptop in about **50 milliseconds**. Larger grids will require more time and computing power to generate.
 
 This project demonstrates my software design and coding abilities. I like to produce very clean, maintainable, **self-documenting** code that includes **comments** helping to explain the more difficult concepts. The single best example of code in this project for review purposes is `Library/Maze.cs`, although the project is presented here in its entirety and should be easy to run using [**Visual Studio Code**](https://code.visualstudio.com/).
 
