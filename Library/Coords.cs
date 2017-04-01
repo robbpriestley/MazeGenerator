@@ -13,7 +13,7 @@ namespace DigitalWizardry.Maze
 
 		public Coords(){}
 		
-		public Coords(int x, int y, int size)
+		public Coords(int x, int y)
 		{
 			X = x;
 			Y = y;
@@ -29,12 +29,12 @@ namespace DigitalWizardry.Maze
 				AdjacentEdgeDown = true;
 			}
 			
-			if (X + 1 == size) 
+			if (X + 1 == Grid.Width) 
 			{
 				AdjacentEdgeRight = true;
 			}
 			
-			if (Y + 1 == size) 
+			if (Y + 1 == Grid.Height) 
 			{
 				AdjacentEdgeUp = true;
 			}

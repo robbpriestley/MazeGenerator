@@ -8,7 +8,7 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            Maze maze = new Maze(25);
+            Maze maze = new Maze(25, 25);
 			StringBuilder output = new StringBuilder();
 			output.AppendLine(maze.VisualizeAsText());
 			output.AppendLine(maze.BuildStats() + Environment.NewLine);
