@@ -100,7 +100,7 @@ namespace DigitalWizardry.Maze
 				{
 					for (int x = 0; x < _width; x++) 
 					{
-						cell = CellAt(x, y);
+						cell = _grid[x, y];
 						
 						if (!cell.Type.IsEmpty && !cell.AttachBlocked && cell.AvailableConnections > 0)
 						{
@@ -166,7 +166,7 @@ namespace DigitalWizardry.Maze
 			
 			if (cell.Y + 1 < _height)
 			{
-				cellUp = CellAt(cell.X, cell.Y + 1);
+				cellUp = _grid[cell.X, cell.Y + 1];
 
 				if (cell.Type.ConnectsTo(cellUp.Type, Direction.Up))
 				{
@@ -177,7 +177,7 @@ namespace DigitalWizardry.Maze
 			
 			if (cell.Y - 1 >= 0)
 			{
-				cellDown = CellAt(cell.X, cell.Y - 1);
+				cellDown = _grid[cell.X, cell.Y - 1];
 
 				if (cell.Type.ConnectsTo(cellDown.Type, Direction.Down))
 				{
@@ -188,7 +188,7 @@ namespace DigitalWizardry.Maze
 			
 			if (cell.X - 1 >= 0)
 			{
-				cellLeft = CellAt(cell.X - 1, cell.Y);
+				cellLeft = _grid[cell.X - 1, cell.Y];
 
 				if (cell.Type.ConnectsTo(cellLeft.Type, Direction.Left))
 				{
@@ -199,7 +199,7 @@ namespace DigitalWizardry.Maze
 			
 			if (cell.X + 1 < _width)
 			{
-				cellRight = CellAt(cell.X + 1, cell.Y);
+				cellRight = _grid[cell.X + 1, cell.Y];
 
 				if (cell.Type.ConnectsTo(cellRight.Type, Direction.Right))
 				{
@@ -227,7 +227,7 @@ namespace DigitalWizardry.Maze
 			// Cell above.
 			if (cell.Type.ConnectsUp && cell.Y + 1 < _height)
 			{
-				if (CellAt(cell.X, cell.Y + 1).Type.IsEmpty)
+				if (_grid[cell.X, cell.Y + 1].Type.IsEmpty)
 				{
 					coordPotentials.Add(new Coords(cell.X, cell.Y + 1));
 				}
@@ -236,7 +236,7 @@ namespace DigitalWizardry.Maze
 			// Cell below.
 			if (cell.Type.ConnectsDown && cell.Y - 1 >= 0)
 			{
-				if (CellAt(cell.X, cell.Y - 1).Type.IsEmpty)
+				if (_grid[cell.X, cell.Y - 1].Type.IsEmpty)
 				{
 					coordPotentials.Add(new Coords(cell.X, cell.Y - 1));
 				}
@@ -245,7 +245,7 @@ namespace DigitalWizardry.Maze
 			// Cell left.
 			if (cell.Type.ConnectsLeft && cell.X - 1 >= 0)
 			{
-				if (CellAt(cell.X - 1, cell.Y).Type.IsEmpty)
+				if (_grid[cell.X - 1, cell.Y].Type.IsEmpty)
 				{
 					coordPotentials.Add(new Coords(cell.X - 1, cell.Y));
 				}
@@ -254,7 +254,7 @@ namespace DigitalWizardry.Maze
 			// Cell right.
 			if (cell.Type.ConnectsRight && cell.X + 1 < _width)
 			{
-				if (CellAt(cell.X + 1, cell.Y).Type.IsEmpty)
+				if (_grid[cell.X + 1, cell.Y].Type.IsEmpty)
 				{
 					coordPotentials.Add(new Coords(cell.X + 1, cell.Y));
 				}
@@ -326,7 +326,7 @@ namespace DigitalWizardry.Maze
 			
 			if (coords.Y + 1 < _height)
 			{
-				cellUp = CellAt(coords.X, coords.Y + 1);
+				cellUp = _grid[coords.X, coords.Y + 1];
 				if (!newCellType.CompatibleWith(cellUp.Type, Direction.Up))
 				{
 					return false;
@@ -335,7 +335,7 @@ namespace DigitalWizardry.Maze
 			
 			if (coords.Y - 1 >= 0)
 			{
-				cellDown = CellAt(coords.X, coords.Y - 1);
+				cellDown = _grid[coords.X, coords.Y - 1];
 				if (!newCellType.CompatibleWith(cellDown.Type, Direction.Down))
 				{
 					return false;
@@ -344,7 +344,7 @@ namespace DigitalWizardry.Maze
 			
 			if (coords.X - 1 >= 0)
 			{
-				cellLeft = CellAt(coords.X - 1, coords.Y);
+				cellLeft = _grid[coords.X - 1, coords.Y];
 				if (!newCellType.CompatibleWith(cellLeft.Type, Direction.Left))
 				{
 					return false;
@@ -353,7 +353,7 @@ namespace DigitalWizardry.Maze
 			
 			if (coords.X + 1 < _width)
 			{
-				cellRight = CellAt(coords.X + 1, coords.Y);
+				cellRight = _grid[coords.X + 1, coords.Y];
 				if (!newCellType.CompatibleWith(cellRight.Type, Direction.Right))
 				{
 					return false;
@@ -393,11 +393,6 @@ namespace DigitalWizardry.Maze
 		#endregion
 		#region Accessors
 
-		private Cell CellAt(int x, int y)
-		{
-			return _grid[x, y];
-		}
-
 		private void SetCellValue(int x, int y, Cell cell)
 		{
 			_grid[x, y] = cell;
@@ -415,7 +410,7 @@ namespace DigitalWizardry.Maze
 				int x = _r.Next(_width);
 				int y = _r.Next(_height);
 				
-				Cell cell = CellAt(x, y);
+				Cell cell = _grid[x, y];
 				
 				if (empty)  // Cell must be occupied.
 				{
@@ -512,13 +507,13 @@ namespace DigitalWizardry.Maze
 		{
 			_sequenceNumber = 0;
 			
-			Solve(CellAt(_startCoords.X, _startCoords.Y));
+			Solve(_grid[_startCoords.X, _startCoords.Y]);
 			
 			for (int y = 0; y < _height; y++) 
 			{
 				for (int x = 0; x < _width; x++)
 				{
-					if (!CellAt(x, y).Visited)
+					if (!_grid[x, y].Visited)
 					{
 						throw new MazeGenerateException();
 					}
@@ -537,7 +532,7 @@ namespace DigitalWizardry.Maze
 			// Cell above.
 			if (cell.Type.TraversableUp && cell.Y + 1 < _height)
 			{
-				Cell cellAbove = CellAt(cell.X, cell.Y + 1);
+				Cell cellAbove = _grid[cell.X, cell.Y + 1];
 				
 				if (!cellAbove.Visited)
 				{
@@ -548,7 +543,7 @@ namespace DigitalWizardry.Maze
 			// Cell below.
 			if (cell.Type.TraversableDown && cell.Y - 1 >= 0)
 			{
-				Cell cellBelow = CellAt(cell.X, cell.Y - 1);
+				Cell cellBelow = _grid[cell.X, cell.Y - 1];
 				
 				if (!cellBelow.Visited)
 				{
@@ -559,7 +554,7 @@ namespace DigitalWizardry.Maze
 			// Cell left.
 			if (cell.Type.TraversableLeft && cell.X - 1 >= 0)
 			{
-				Cell cellLeft = CellAt(cell.X - 1, cell.Y);
+				Cell cellLeft = _grid[cell.X - 1, cell.Y];
 				
 				if (!cellLeft.Visited)
 				{
@@ -570,7 +565,7 @@ namespace DigitalWizardry.Maze
 			// Cell right.
 			if (cell.Type.TraversableRight && cell.X + 1 < _width)
 			{
-				Cell cellRight = CellAt(cell.X + 1, cell.Y);
+				Cell cellRight = _grid[cell.X + 1, cell.Y];
 				
 				if (!cellRight.Visited)
 				{
@@ -590,7 +585,7 @@ namespace DigitalWizardry.Maze
 			{
 				for (int y = 0; y < _height; y++) 
 				{
-					if (!CellAt(x, y).Type.IsEmpty)
+					if (!_grid[x, y].Type.IsEmpty)
 					{
 						filledCellCount++;
 					}
@@ -614,7 +609,7 @@ namespace DigitalWizardry.Maze
 				
 				for (x = 0; x < _width * 2; x++) 
 				{
-					cell = CellAt(x / 2, y);
+					cell = _grid[x / 2, y];
 					line.Append(x % 2 == 0 ? cell.Type.TextRep : cell.Type.TextRep2);
 				}
 				
