@@ -6,7 +6,7 @@
 
 The maze generation algorithm is configurable and produces **fully-random** mazes that completely occupy  grids with variable dimensions. The demonstration involves a **25 x 25** grid. The algorithm completes the maze generation task for a grid this size on a modest Mac laptop in about **50 milliseconds**. Larger grids will require more time and computing power to generate.
 
-This project demonstrates my software design and coding abilities. I like to produce very clean, maintainable, **self-documenting** code that includes helpful comments explaining the more difficult concepts. The single best example of code in this project for review purposes is `Library/Maze.cs`, although the project is presented here in its entirety and should be easy to run using [**Visual Studio Code**](https://code.visualstudio.com/).
+This project demonstrates my software design and coding abilities. I like to produce very clean, maintainable, **self-documenting** code that includes helpful comments explaining the more difficult concepts. The single best example of code in this project for review purposes is `Library/Maze.cs`, although the project is presented here in its entirety and should be easy to run using [**Visual Studio Code**](https://code.visualstudio.com/). See below to access a running **functional demo** online.
 
 #### Example Output
 
@@ -26,12 +26,12 @@ Each maze successfully completed must undergo an **analysis** to ensure that eac
 
 #### Potential Applications
 
-This algorithm is suitable for use in video game applications. It was originally developed as an aspect of an **iPhone** video game I produced in 2013 called **Robot Attack Maze** (see screenshot below). In 2017, I ported that code from the original **Objective-C** to **C#** and have also separately extended the algorithm to include rooms and other special features that produce richly detailed **standalone** game levels for a future RPG game or similar concept.
+This algorithm is suitable for use in video game applications. It was originally developed as part of an **iPhone** video game I produced in 2013 called **Robot Attack Maze** ([screenshot](http://www.digitalwizardry.ca/wp-content/themes/one-pager-genesis-master/images/utility/RobotAttackMaze.jpg)). In 2017, I ported that code from the original **Objective-C** to **C#** and have also separately extended the algorithm to include rooms and other special features that produce richly detailed **standalone** game levels for a future RPG game or similar concept.
+
+#### Functional Demo
+
+To see the above-mentioned extended version of the maze generation algorithm working as part of a web application, please visit my [functional demo](http://www.digitalwizardry.ca:5000). This demo generates mazes and renders them using graphical tiles. A detailed description of how the web application works is also provided.
 
 #### Further Information
 
-For further information or for business inquiries, please contact me via my website at [www.digitalwizardry.ca](http://www.digitalwizardry.ca).
-
-![Robot Attack Maze iPhone Game Screenshot](http://www.digitalwizardry.ca/wp-content/themes/one-pager-genesis-master/images/utility/RobotAttackMaze.jpg)
-
-<a href="http://example.com/" target="_blank">example</a>
+For further information or for business inquiries, please contact me directly via my website at [www.digitalwizardry.ca](http://www.digitalwizardry.ca).
