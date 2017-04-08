@@ -22,16 +22,16 @@ The algorithm **adapts**, recovering from common problems that prevent full grow
 
 #### Solving Mazes
 
-Each maze successfully completed must undergo an **analysis** to ensure that each cell in the maze is reachable from every other cell in the maze. This is called [**solving**](https://en.wikipedia.org/wiki/Maze_solving_algorithm) the maze, and it prevents "island" portions of the maze from developing independently from one another without any link between them. Solving is accomplished using a [**recursive**](https://en.wikipedia.org/wiki/Recursion_(computer_science)) subroutine.
+Each maze successfully completed must undergo an **analysis** to ensure that each cell in the maze is reachable from every other cell in the maze. This is called **solving** the maze, and it prevents "island" portions of the maze from developing independently from one another without any link between them. Solving is accomplished using a **recursive** subroutine.
 
 #### Potential Applications
 
-This algorithm is suitable for use in video game applications. It was originally developed as part of an **iPhone** video game I produced in 2013 called **Robot Attack Maze** ([screenshot](http://www.digitalwizardry.ca/wp-content/themes/one-pager-genesis-master/images/utility/RobotAttackMaze.jpg)). In 2017, I ported that code from the original **Objective-C** to **C#** and have also separately extended the algorithm to include rooms and other special features that produce richly detailed **standalone** game levels for a future RPG game or similar concept.
+This algorithm is suitable for use in video game applications. It was originally developed as part of an **iPhone** video game I produced in 2013 called **Robot Attack Maze** ([**screenshot**](http://www.digitalwizardry.ca/wp-content/themes/one-pager-genesis-master/images/utility/RobotAttackMaze.jpg)). In 2017, I ported that code from the original **Objective-C** to **C#** and have also separately extended the algorithm to include rooms and other special features that produce richly detailed **standalone** game levels for a future RPG game or similar concept.
 
 #### Functional Demo
 
-To see the above-mentioned extended version of the maze generation algorithm working as part of a web application, please visit my [functional demo](http://www.digitalwizardry.ca:5000). This demo generates mazes and renders them using graphical tiles. A detailed description of how the web application works is also provided.
+To see the above-mentioned extended version of the maze generation algorithm working as part of a web application, please visit my [**functional demo**](http://www.digitalwizardry.ca:5000). This demo generates mazes and renders them using graphical tiles. A detailed description of how the web application works is also provided.
 
 #### Further Information
 
-For further information or for business inquiries, please contact me directly via my website at [www.digitalwizardry.ca](http://www.digitalwizardry.ca).
+For further information or for business inquiries, please contact me directly via my website at [**www.digitalwizardry.ca**](http://www.digitalwizardry.ca).
