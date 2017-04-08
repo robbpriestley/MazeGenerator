@@ -22,7 +22,7 @@ The algorithm **adapts**, recovering from common problems that prevent full grow
 
 #### Solving Mazes
 
-Each maze successfully completed must undergo an **analysis** to ensure that each cell in the maze is reachable from every other cell in the maze. This is called <a href="https://en.wikipedia.org/wiki/Maze_solving_algorithm" target="_blank">**solving**</a> the maze, and it prevents "island" portions of the maze from developing independently from one another without any link between them. Solving is accomplished using a [**recursive**](https://en.wikipedia.org/wiki/Recursion_(computer_science)) subroutine.
+Each maze successfully completed must undergo an **analysis** to ensure that each cell in the maze is reachable from every other cell in the maze. This is called [**solving**](https://en.wikipedia.org/wiki/Maze_solving_algorithm target="_blank") the maze, and it prevents "island" portions of the maze from developing independently from one another without any link between them. Solving is accomplished using a [**recursive**](https://en.wikipedia.org/wiki/Recursion_(computer_science)) subroutine.
 
 #### Potential Applications
 
