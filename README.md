@@ -6,7 +6,7 @@
 
 The maze generation algorithm is configurable and produces **fully-random** mazes that completely occupy  grids with variable dimensions. The demonstration involves a **25 x 25** grid. The algorithm completes the maze generation task for a grid this size on a modest Mac laptop in about **50 milliseconds**. Larger grids will require more time and computing power to generate.
 
-This project demonstrates my software design and coding abilities. I like to produce very clean, maintainable, **self-documenting** code that includes **comments** helping to explain the more difficult concepts. The single best example of code in this project for review purposes is `Library/Maze.cs`, although the project is presented here in its entirety and should be easy to run using [**Visual Studio Code**](https://code.visualstudio.com/).
+This project demonstrates my software design and coding abilities. I like to produce very clean, maintainable, **self-documenting** code that includes helpful comments explaining the more difficult concepts. The single best example of code in this project for review purposes is `Library/Maze.cs`, although the project is presented here in its entirety and should be easy to run using [**Visual Studio Code**](https://code.visualstudio.com/).
 
 #### Example Output
 
@@ -22,7 +22,7 @@ The algorithm **adapts**, recovering from common problems that prevent full grow
 
 #### Solving Mazes
 
-Each maze successfully completed must undergo an **analysis** to ensure that each cell in the maze is reachable from every other cell in the maze. This is called [**solving**](https://en.wikipedia.org/wiki/Maze_solving_algorithm) the maze, and it prevents "island" portions of the maze from developing independently from one another without any link between them. Solving is accomplished using a [**recursive**](https://en.wikipedia.org/wiki/Recursion_(computer_science)) subroutine.
+Each maze successfully completed must undergo an **analysis** to ensure that each cell in the maze is reachable from every other cell in the maze. This is called <a href="https://en.wikipedia.org/wiki/Maze_solving_algorithm" target="_blank">**solving**</a> the maze, and it prevents "island" portions of the maze from developing independently from one another without any link between them. Solving is accomplished using a [**recursive**](https://en.wikipedia.org/wiki/Recursion_(computer_science)) subroutine.
 
 #### Potential Applications
 
