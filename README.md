@@ -22,7 +22,7 @@ The algorithm **adapts**, recovering from common problems that prevent full grow
 
 #### Solving Mazes
 
-Each maze successfully completed must undergo an **analysis** to ensure that each cell in the maze is reachable from every other cell in the maze. This is called [**solving**](https://en.wikipedia.org/wiki/Maze_solving_algorithm target="_blank") the maze, and it prevents "island" portions of the maze from developing independently from one another without any link between them. Solving is accomplished using a [**recursive**](https://en.wikipedia.org/wiki/Recursion_(computer_science)) subroutine.
+Each maze successfully completed must undergo an **analysis** to ensure that each cell in the maze is reachable from every other cell in the maze. This is called [**solving**](https://en.wikipedia.org/wiki/Maze_solving_algorithm) the maze, and it prevents "island" portions of the maze from developing independently from one another without any link between them. Solving is accomplished using a [**recursive**](https://en.wikipedia.org/wiki/Recursion_(computer_science)) subroutine.
 
 #### Potential Applications
 
@@ -33,3 +33,5 @@ This algorithm is suitable for use in video game applications. It was originally
 For further information or for business inquiries, please contact me via my website at [www.digitalwizardry.ca](http://www.digitalwizardry.ca).
 
 ![Robot Attack Maze iPhone Game Screenshot](http://www.digitalwizardry.ca/wp-content/themes/one-pager-genesis-master/images/utility/RobotAttackMaze.jpg)
+
+<a href="http://example.com/" target="_blank">example</a>
