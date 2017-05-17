@@ -1,0 +1,8 @@
+.*
+bin
+obj
+.git
+build
+Reference
+.gitignore
+Dockerfile

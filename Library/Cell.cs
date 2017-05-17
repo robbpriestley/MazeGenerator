@@ -31,5 +31,23 @@ namespace DigitalWizardry.MazeGenerator
 			AvailableConnections = source.AvailableConnections;
 			Type = source.Type;    // This does not require deep copy.
 		}
+
+		public string CssName
+		{
+			get
+			{
+				return Type.Name.ToLower().Replace("_", "-");
+			}
+		}
+
+		public string CssLocation
+		{
+			get
+			{
+				var xs = X < 10 ? "0" + X.ToString() : X.ToString();
+				var ys = Y < 10 ? "0" + Y.ToString() : Y.ToString();
+				return "g" + xs + "-" + ys;
+			}
+		}
 	}
 }

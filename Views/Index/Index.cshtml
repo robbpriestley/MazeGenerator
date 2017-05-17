@@ -1,0 +1,66 @@
+@model DigitalWizardry.MazeGenerator.MazeViewModel
+
+@{
+    ViewData["Title"] = "Maze Generator";
+}
+
+<table>
+	<tr>
+		<td class="pad">
+			<h3>Maze Generator Functional Demo</h3>
+			<p>
+				by Robb Priestley 
+				<br>©️ 2017 Digital Wizardry Software Solutions Ltd.
+			</p>
+			<p class="btn">
+				<a class="btn" href="" onclick="Reset()">Generate Maze!</a>
+			</p>
+			<h3>How It Works</h3>
+			<p>
+				Click the "Generate Maze!" button above and the server will programatically compute a unique maze layout. This web application will then render the maze layout in the space to the right of this text using graphical tiles.
+			</p>
+			<p>
+				The algorithm used to generate the maze is part of an extended, more sophisticated version of my <a class="normal" target="_blank" href="https://github.com/robbpriestley/MazeGenerator">MazeGenerator</a> project on GitHub. Source code and detailed documentation relating to the algorithm are provided there.
+			</p>
+			<p>
+				Scroll down for a technical outline of how this web application works. For contact information or business inquiries, please visit my website: <a class="normal" target="_blank" href="http://www.digitalwizardry.ca">www.digitalwizardry.ca</a>
+			</p>
+			<h3>Thanks for visiting!</h3>
+		</td>
+		<td>
+			<div id="grid" class="grid">
+			@for(var y = 14; y >= 0; y--)
+			{
+				@for(var x = 0; x <= 14; x++)
+				{
+					@* Initialze grid with empty divs ready to take a tile name in the class *@
+					var xs = x < 10 ? "0" + x.ToString() : x.ToString();
+					var ys = y < 10 ? "0" + y.ToString() : y.ToString();
+					var location = "g" + xs + "-" + ys;
+					<div id="@location" class="tile @location"></div>
+				}
+			}
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td class="wide" colspan="2">
+			<h3>Technical Outline</h3>
+			<p>
+				This web application was built using <strong>ASP.NET Core MVC</strong>. The maze generation algorithm is part of a library that the web application uses to produce maze data. The maze data model is packaged up and delivered to the view by a controller which responds to an <strong>AJAX</strong> request from the page when it loads, or when the above button is clicked.
+			</p>
+			<p>	
+				Supporting <strong>JavaScript</strong> for the web application is transpiled into runnable code from a <strong>TypeScript</strong> source file. The script accepts the maze data in <strong>JSON</strong> format, deserializes it into an object, and assigns <strong>CSS</strong> references to <strong>div</strong> elements in the grid area above in order to place graphical tiles in the proper order to render the maze visually. The <strong>PNG</strong> graphics are part of a sprite sheet for faster rendering.
+			</p>
+			<p>
+				The entire web application is packaged into a <strong>Docker</strong> container and is hosted on the web server, where it is assigned to port 5000. The web server is an <strong>Amazon Web Services EC2</strong> instance, which also simultaneously runs the <strong>WordPress</strong> installation corresponding to my website <a class="normal" target="_blank" href="http://www.digitalwizardry.ca">www.digitalwizardry.ca</a>.
+			</p>
+			<p>
+				All of this was accomplished using <strong>Visual Studio Code</strong> on a <strong>Mac</strong>. Next steps will be to develop this web application into a playable game controlled by JavaScript and involving game tokens superimposed onto the grid area.
+			</p>
+		</td>
+	</tr>
+</table>
+
+<!-- Keep this call to Reset() down here for proper spinner activation! -->
+<script>Reset();</script>

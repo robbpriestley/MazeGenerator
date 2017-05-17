@@ -1,18 +1,20 @@
-using System;
-using System.Text;
-using DigitalWizardry.Maze;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
-namespace ConsoleApp
+namespace DigitalWizardry.MazeGenerator
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Maze maze = new Maze(25, 25);
-			StringBuilder output = new StringBuilder();
-			output.AppendLine(maze.VisualizeAsText());
-			output.AppendLine(maze.BuildStats() + Environment.NewLine);
-			Console.WriteLine(output);
+            var host = new WebHostBuilder()
+                .UseKestrel()
+				.UseUrls("http://0.0.0.0:5000")  // Docker port forwarding
+                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseStartup<Startup>()
+                .Build();
+
+            host.Run();
         }
     }
 }

@@ -35,6 +35,7 @@ namespace DigitalWizardry.MazeGenerator
 		public int Weight { get; set; }                       // Influences the selection when types are being randomly determined.
 		public string TextRep { get; set; }                   // Primary character used to represent a type in text.
 		public string TextRep2 { get; set; }                  // Used for better rendering of the text representation, which appears "squished" in the horizontal dimension.
+		public string Name { get; set; }                      // Name of type entity.
 		public int InitialAvailableConnections { get; set; }  // Used when generating the maze to determine if other cells can be attached to a target cell.
 		
 		// *** END UTILITY MEMBERS ***
@@ -214,6 +215,7 @@ namespace DigitalWizardry.MazeGenerator
 			EmptyCell.TextRep2 = @" ";
 			EmptyCell.ForceGrowthCompatible = false;
 			EmptyCell.InitialAvailableConnections = 4;
+			EmptyCell.Name = "EmptyCell";
 			
 			// *** END SPECIAL CELLS ***
 			
@@ -227,6 +229,7 @@ namespace DigitalWizardry.MazeGenerator
 			Vert.TextRep = @"║";
 			Vert.TextRep2 = @" ";
 			Vert.InitialAvailableConnections = 2;
+			Vert.Name = "Vert";
 			
 			Horiz.Weight = 100;
 			Horiz.ConnectsLeft = true;
@@ -236,6 +239,7 @@ namespace DigitalWizardry.MazeGenerator
 			Horiz.TextRep = @"═";
 			Horiz.TextRep2 = @"═";
 			Horiz.InitialAvailableConnections = 2;
+			Horiz.Name = "Horiz";
 			
 			Inter.Weight = 20;
 			Inter.ConnectsUp = true;
@@ -250,6 +254,7 @@ namespace DigitalWizardry.MazeGenerator
 			Inter.TextRep2 = @"═";
 			Inter.IsJunction = true;
 			Inter.InitialAvailableConnections = 4;
+			Inter.Name = "Inter";
 			
 			JuncULR.Weight = 20;
 			JuncULR.ConnectsUp = true;
@@ -262,6 +267,7 @@ namespace DigitalWizardry.MazeGenerator
 			JuncULR.TextRep2 = @"═";
 			JuncULR.IsJunction = true;
 			JuncULR.InitialAvailableConnections = 3;
+			JuncULR.Name = "JuncULR";
 			
 			JuncUDR.Weight = 20;
 			JuncUDR.ConnectsUp = true;
@@ -274,6 +280,7 @@ namespace DigitalWizardry.MazeGenerator
 			JuncUDR.TextRep2 = @"═";
 			JuncUDR.IsJunction = true;
 			JuncUDR.InitialAvailableConnections = 3;
+			JuncUDR.Name = "JuncUDR";
 			
 			JuncDLR.Weight = 20;
 			JuncDLR.ConnectsDown = true;
@@ -286,6 +293,7 @@ namespace DigitalWizardry.MazeGenerator
 			JuncDLR.TextRep2 = @"═";
 			JuncDLR.IsJunction = true;
 			JuncDLR.InitialAvailableConnections = 3;
+			JuncDLR.Name = "JuncDLR";
 			
 			JuncUDL.Weight = 20;
 			JuncUDL.ConnectsUp = true;
@@ -298,6 +306,7 @@ namespace DigitalWizardry.MazeGenerator
 			JuncUDL.TextRep2 = @" ";
 			JuncUDL.IsJunction = true;
 			JuncUDL.InitialAvailableConnections = 3;
+			JuncUDL.Name = "JuncUDL";
 			
 			ElbUR.Weight = 20;
 			ElbUR.ConnectsUp = true;
@@ -307,6 +316,7 @@ namespace DigitalWizardry.MazeGenerator
 			ElbUR.TextRep = @"╚";
 			ElbUR.TextRep2 = @"═";
 			ElbUR.InitialAvailableConnections = 2;
+			ElbUR.Name = "ElbUR";
 			
 			ElbDR.Weight = 20;
 			ElbDR.ConnectsDown = true;
@@ -316,6 +326,7 @@ namespace DigitalWizardry.MazeGenerator
 			ElbDR.TextRep = @"╔";
 			ElbDR.TextRep2 = @"═";
 			ElbDR.InitialAvailableConnections = 2;
+			ElbDR.Name = "ElbDR";
 			
 			ElbDL.Weight = 20;
 			ElbDL.ConnectsDown = true;
@@ -325,6 +336,7 @@ namespace DigitalWizardry.MazeGenerator
 			ElbDL.TextRep = @"╗";
 			ElbDL.TextRep2 = @" ";
 			ElbDL.InitialAvailableConnections = 2;
+			ElbDL.Name = "ElbDL";
 			
 			ElbUL.Weight = 20;
 			ElbUL.ConnectsUp = true;
@@ -334,6 +346,7 @@ namespace DigitalWizardry.MazeGenerator
 			ElbUL.TextRep = @"╝";
 			ElbUL.TextRep2 = @" ";
 			ElbUL.InitialAvailableConnections = 2;
+			ElbUL.Name = "ElbUL";
 
 			// *** END CORRIDOR CELLS ***
 			// *** BEGIN DEAD END CELLS ***
@@ -345,6 +358,7 @@ namespace DigitalWizardry.MazeGenerator
 			DeadU.TextRep2 = @" ";
 			DeadU.IsDeadEnd = true;
 			DeadU.InitialAvailableConnections = 1;
+			DeadU.Name = "DeadU";
 			
 			DeadD.Weight = 1;
 			DeadD.ConnectsDown = true;
@@ -353,6 +367,7 @@ namespace DigitalWizardry.MazeGenerator
 			DeadD.TextRep2 = @" ";
 			DeadD.IsDeadEnd = true;
 			DeadD.InitialAvailableConnections = 1;
+			DeadD.Name = "DeadD";
 			
 			DeadL.Weight = 1;
 			DeadL.ConnectsLeft = true;
@@ -361,6 +376,7 @@ namespace DigitalWizardry.MazeGenerator
 			DeadL.TextRep2 = @" ";
 			DeadL.IsDeadEnd = true;
 			DeadL.InitialAvailableConnections = 1;
+			DeadL.Name = "DeadL";
 			
 			DeadR.Weight = 1;
 			DeadR.ConnectsRight = true;
@@ -369,26 +385,31 @@ namespace DigitalWizardry.MazeGenerator
 			DeadR.TextRep2 = @"═";
 			DeadR.IsDeadEnd = true;
 			DeadR.InitialAvailableConnections = 1;
+			DeadR.Name = "DeadR";
 			
 			DeadexU.ConnectsUp = true;
 			DeadexU.TraversableUp = true;
 			DeadexU.TextRep = @"╨";
 			DeadexU.TextRep2 = @" ";
+			DeadexU.Name = "DeadexU";
 			
 			DeadexD.ConnectsDown = true;
 			DeadexD.TraversableDown = true;
 			DeadexD.TextRep = @"╥";
 			DeadexD.TextRep2 = @" ";
+			DeadexD.Name = "DeadexD";
 			
 			DeadexL.ConnectsLeft = true;
 			DeadexL.TraversableLeft = true;
 			DeadexL.TextRep = @"╡";
 			DeadexL.TextRep2 = @" ";
+			DeadexL.Name = "DeadexL";
 
 			DeadexR.ConnectsRight = true;
 			DeadexR.TraversableRight = true;
 			DeadexR.TextRep = @"╞";
 			DeadexR.TextRep2 = @"═";
+			DeadexR.Name = "DeadexR";
 
 			// *** END DEAD END CELLS ***
 		}

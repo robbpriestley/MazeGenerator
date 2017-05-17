@@ -650,6 +650,25 @@ namespace DigitalWizardry.MazeGenerator
 				   "Elapsed Time: " + _elapsedTime.ToString();
 		}
 
+		public string MazeView
+		{
+			get
+			{
+				MazeViewModel[,] modelCells = new MazeViewModel[_width, _height];
+
+				foreach (Cell cell in _grid)
+				{
+					MazeViewModel modelCell = new MazeViewModel(cell.X, cell.Y);
+					modelCell.CssName = cell.CssName;
+					modelCell.CssLocation = cell.CssLocation;
+
+					modelCells[cell.X, cell.Y] = modelCell;
+				}
+
+				return Utility.Json(modelCells);
+			}
+		}
+
 		#endregion
 	}
 
