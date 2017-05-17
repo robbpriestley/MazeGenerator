@@ -141,10 +141,6 @@ namespace DigitalWizardry.MazeGenerator
 		private static readonly CellType _deadD;
 		private static readonly CellType _deadL;
 		private static readonly CellType _deadR;
-		private static readonly CellType _deadexU;
-		private static readonly CellType _deadexD;
-		private static readonly CellType _deadexL;
-		private static readonly CellType _deadexR;
 		
 		// *** END FIELD DECLARATIONS ***
 		// *** BEGIN PROPERTY DECLARATIONS ***
