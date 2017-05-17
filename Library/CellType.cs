@@ -164,11 +164,7 @@ namespace DigitalWizardry.MazeGenerator
 		public static CellType DeadU { get { return _deadU; } }          // Dead End Up                  
 		public static CellType DeadD { get { return _deadD; } }          // Dead End Down                
 		public static CellType DeadL { get { return _deadL; } }          // Dead End Left                
-		public static CellType DeadR { get { return _deadR; } }          // Dead End Right 
-		public static CellType DeadexU { get { return _deadexU; } }      // Dead End Exit Up                  
-		public static CellType DeadexD { get { return _deadexD; } }      // Dead End Exit Down                
-		public static CellType DeadexL { get { return _deadexL; } }      // Dead End Exit Left                
-		public static CellType DeadexR { get { return _deadexR; } }      // Dead End Exit Right 
+		public static CellType DeadR { get { return _deadR; } }          // Dead End Right
 		
 		// *** END PROPERTY DECLARATIONS ***
 		
@@ -190,10 +186,6 @@ namespace DigitalWizardry.MazeGenerator
 			_deadD = new CellType();
 			_deadL = new CellType();
 			_deadR = new CellType();
-			_deadexU = new CellType();
-			_deadexD = new CellType();
-			_deadexL = new CellType();
-			_deadexR = new CellType();
 
 			Initialize();  // Static class initialize.
 		}
@@ -386,30 +378,6 @@ namespace DigitalWizardry.MazeGenerator
 			DeadR.IsDeadEnd = true;
 			DeadR.InitialAvailableConnections = 1;
 			DeadR.Name = "DeadR";
-			
-			DeadexU.ConnectsUp = true;
-			DeadexU.TraversableUp = true;
-			DeadexU.TextRep = @"╨";
-			DeadexU.TextRep2 = @" ";
-			DeadexU.Name = "DeadexU";
-			
-			DeadexD.ConnectsDown = true;
-			DeadexD.TraversableDown = true;
-			DeadexD.TextRep = @"╥";
-			DeadexD.TextRep2 = @" ";
-			DeadexD.Name = "DeadexD";
-			
-			DeadexL.ConnectsLeft = true;
-			DeadexL.TraversableLeft = true;
-			DeadexL.TextRep = @"╡";
-			DeadexL.TextRep2 = @" ";
-			DeadexL.Name = "DeadexL";
-
-			DeadexR.ConnectsRight = true;
-			DeadexR.TraversableRight = true;
-			DeadexR.TextRep = @"╞";
-			DeadexR.TextRep2 = @"═";
-			DeadexR.Name = "DeadexR";
 
 			// *** END DEAD END CELLS ***
 		}
