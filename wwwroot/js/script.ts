@@ -3,10 +3,7 @@
 let dungeon : object = null;
 
 function Reset() : void
-{
-	var spinner = SpinnerSetup();
-	spinner.spin($('#grid')[0]);
-	
+{	
 	$.ajax
 	({
 		type: 'GET',
@@ -17,7 +14,6 @@ function Reset() : void
 		{
 			dungeon = [JSON.parse(result)];  // As this is a reset, assign the JSON to element 0 of the dungeon array.
 			PresentMaze(dungeon[0]);
-			spinner.stop();
 		}
 	});
 }
@@ -49,23 +45,3 @@ function GridReference(x : number, y : number) : string
 	let ys = y < 10 ? "0" + y.toString() : y.toString();
 	return "g" + xs + "-" + ys;
 }
-
-// *** BEGIN UTILITY ***
-
-function SpinnerSetup() : Spinner
-{
-	var opts = 
-	{
-		lines: 9,
-		length: 0,
-		width: 13,
-		radius: 21,
-		color: '#fff',
-		opacity: 0.25,
-		rotate: 33
-	}
-
-	return new Spinner(opts);
-}
-
-// *** END UTILITY ***
