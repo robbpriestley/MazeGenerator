@@ -1,4 +1,4 @@
-namespace DigitalWizardry.Maze
+namespace DigitalWizardry.MazeGenerator
 {	
 	public class Cell
 	{

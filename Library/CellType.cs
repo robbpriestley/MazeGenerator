@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace DigitalWizardry.Maze
+namespace DigitalWizardry.MazeGenerator
 {	
 	public class CellType
 	{
