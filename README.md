@@ -1,37 +1,43 @@
 # MazeGenerator
 
-#### Overview
+### Functional Demo
 
-**MazeGenerator** is a project demonstrating the maze generation algorithm I designed and built using **C# [.NET Core 1.1](https://www.microsoft.com/net/download/core)** and [**Visual Studio Code**](https://code.visualstudio.com/) (running on a **Mac**). The project compiles a **console application** which generates a single maze and then outputs it to text for visualization. The text representation uses **unicode** characters to approximate the appearance of the maze.
+[http://www.digitalwizardry.ca:5000](http://www.digitalwizardry.ca:5000)
 
-The maze generation algorithm is configurable and produces **fully-random** mazes that completely occupy  grids with variable dimensions. The demonstration involves a **25 x 25** grid. The algorithm completes the maze generation task for a grid this size on a modest Mac laptop in about **50 milliseconds**. Larger grids will require more time and computing power to generate.
+### Overview
 
-This project demonstrates my software design and coding abilities. I like to produce very clean, maintainable, **self-documenting** code that includes helpful comments explaining the more difficult concepts. The single best example of code in this project for review purposes is `Library/Maze.cs`, although the project is presented here in its entirety and should be easy to run using [**Visual Studio Code**](https://code.visualstudio.com/). See below to access a running **functional demo** online.
+**MazeGenerator** is a project demonstrating the maze generation algorithm I designed and built using **C# ASP.NET Core MVC** on **Visual Studio Code** for **Mac**. The maze generation algorithm is part of a library that the web application uses to produce maze data. The maze data model is packaged up and delivered to the view by a controller which responds to an **AJAX** request from the index page when it loads, or when a button is clicked.
 
-#### Example Output
+Supporting **JavaScript** for the web application is transpiled into runnable code from a **TypeScript** source file. The script accepts the maze data in **JSON** format, deserializes it into an object, and assigns **CSS** references to &lt;div&gt; elements in the grid area above in order to place graphical tiles in the proper order to render the maze visually. The **PNG** graphics are part of a **sprite sheet** for faster rendering.
+
+The entire web application is packaged into a **Docker** container and is hosted on the web server, where it is assigned to port 5000. The web server is an **Amazon Web Services EC2** instance running **Ubuntu Linux**, which also simultaneously runs **Apache** and the **WordPress** installation corresponding to my website.
+
+The maze generation algorithm is configurable and produces **fully-random** mazes that completely occupy  grids with variable dimensions. The demonstration involves a **15 x 15** grid. The algorithm completes the maze generation task for a grid this size on a server in just a few milliseconds. Larger grids will require more time and computing power to generate.
+
+This project demonstrates my software design and coding abilities. I like to produce very clean, maintainable, **self-documenting** code that includes helpful **comments** explaining the more difficult concepts. The single best example of code in this project for review purposes is `Library/Maze.cs`, although the project is presented here in its entirety and should be easy to run using [**Visual Studio Code**](https://code.visualstudio.com/).
+
+### About the Maze Generation Algorithm
+
+**Sample 25 x 25 Maze in Text Format**
 
 ![Example 25 x 25 Maze Output](http://www.digitalwizardry.ca/wp-content/themes/one-pager-genesis-master/images/utility/maze.png)
 
-#### Organic Growth
+**Organic Growth**
 
 Every maze is **unique**, and evolves during the generation process as growth patterns converge and combine in unexpected ways. Starting with a single cell in the grid that receives a random maze segment, the algorithm **iteratively** adds to the structure by attaching additional maze segments **randomly** selected from lists of compatible segment types.
 
-#### Problem Recovery
+**Problem Recovery**
 
 The algorithm **adapts**, recovering from common problems that prevent full growth. However, **irrecoverable** problems frequently demand that entire mazes are abandoned mid-generation. Thus, only about one in five mazes are actually completed. The algorithm simply **persists** until it succeeds, although the time to successfully complete a maze is therefore variable.
 
-#### Solving Mazes
+**Solving Mazes**
 
 Each maze successfully completed must undergo an **analysis** to ensure that each cell in the maze is reachable from every other cell in the maze. This is called **solving** the maze, and it prevents "island" portions of the maze from developing independently from one another without any link between them. Solving is accomplished using a **recursive** subroutine.
 
-#### Potential Applications
+**Potential Applications**
 
 This algorithm is suitable for use in video game applications. It was originally developed as part of an **iPhone** video game I produced in 2013 called **Robot Attack Maze** ([**screenshot**](http://www.digitalwizardry.ca/wp-content/themes/one-pager-genesis-master/images/utility/RobotAttackMaze.jpg)). In 2017, I ported that code from the original **Objective-C** to **C#** and have also separately extended the algorithm to include rooms and other special features that produce richly detailed **standalone** game levels for a future RPG game or similar concept.
 
-#### Functional Demo
-
-To see the above-mentioned extended version of the maze generation algorithm working as part of a web application, please visit my [**functional demo**](http://www.digitalwizardry.ca:5000). This demo generates mazes and renders them using graphical tiles. A detailed description of how the web application works is also provided.
-
-#### Further Information
+### Contact Information
 
 For further information or for business inquiries, please contact me directly via my website at [**www.digitalwizardry.ca**](http://www.digitalwizardry.ca).

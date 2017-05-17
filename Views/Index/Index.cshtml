@@ -47,7 +47,7 @@
 		<td class="wide" colspan="2">
 			<h3>Technical Outline</h3>
 			<p>
-				This web application was built using ASP.NET Core MVC. The maze generation algorithm is part of a custom-built library that the web application uses to produce maze data. The maze data model is packaged up and delivered to the view by a controller which responds to an AJAX request from the page when it loads, or when the above button is clicked.
+				This web application was built using ASP.NET Core MVC. The maze generation algorithm is part of a custom-built library that the web application uses to produce maze data. The maze data model is packaged up and delivered to the view by a controller which responds to an AJAX request from the index page when it loads, or when the above button is clicked.
 			</p>
 			<p>	
 				Supporting JavaScript for the web application is transpiled into runnable code from a TypeScript source file. The script accepts the maze data in JSON format, deserializes it into an object, and assigns CSS references to &lt;div&gt; elements in the grid area above in order to place graphical tiles in the proper order to render the maze visually. The PNG graphics are part of a sprite sheet for faster rendering.
