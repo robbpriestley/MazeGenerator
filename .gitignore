@@ -3,5 +3,6 @@ obj
 .DS_Store
 version.txt
 secrets.json
+node_modules
 wwwroot/js/script.js
 wwwroot/js/script.js.map
