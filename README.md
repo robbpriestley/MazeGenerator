@@ -2,7 +2,7 @@
 
 ### Functional Demo
 
-[http://www.digitalwizardry.ca:5000](http://www.digitalwizardry.ca:5000)
+[https://dwiz-mazegenerator.herokuapp.com/](https://dwiz-mazegenerator.herokuapp.com/)
 
 ### Overview
 
@@ -10,11 +10,11 @@
 
 Supporting **JavaScript** for the web application is transpiled into runnable code from a **TypeScript** source file. The script accepts the maze data in **JSON** format, deserializes it into an object, and assigns **CSS** references to &lt;div&gt; elements in the grid area above in order to place graphical tiles in the proper order to render the maze visually. The **PNG** graphics are part of a **sprite sheet** for faster rendering.
 
-The entire web application is packaged into a **Docker** container and is hosted on the web server, where it is assigned to port 5000. The web server is an **Amazon Web Services EC2** instance running **Ubuntu Linux**, which also simultaneously runs **Apache** and the **WordPress** installation corresponding to my website.
-
 The maze generation algorithm is configurable and produces **fully-random** mazes that completely occupy  grids with variable dimensions. The demonstration involves a **15 x 15** grid. The algorithm completes the maze generation task for a grid this size on a server in just a few milliseconds. Larger grids will require more time and computing power to generate.
 
 This project demonstrates my software design and coding abilities. I like to produce very clean, maintainable, **self-documenting** code that includes helpful **comments** explaining the more difficult concepts. The single best example of code in this project for review purposes is `Library/Maze.cs`, although the project is presented here in its entirety and should be easy to run using [**Visual Studio Code**](https://code.visualstudio.com/).
+
+The entire web application is packaged into a **Docker** container and is hosted in clous services such as AWS or Heroku.
 
 ### About the Maze Generation Algorithm
 
@@ -37,7 +37,3 @@ Each maze successfully completed must undergo an **analysis** to ensure that eac
 **Potential Applications**
 
 This algorithm is suitable for use in video game applications. It was originally developed as part of an **iPhone** video game I produced in 2013 called **Robot Attack Maze** ([**screenshot**](http://www.digitalwizardry.ca/wp-content/themes/one-pager-genesis-master/images/utility/RobotAttackMaze.jpg)). In 2017, I ported that code from the original **Objective-C** to **C#** and have also separately extended the algorithm to include rooms and other special features that produce richly detailed **standalone** game levels for a future RPG game or similar concept.
-
-### Contact Information
-
-For further information or for business inquiries, please contact me directly via my website at [**www.digitalwizardry.ca**](http://www.digitalwizardry.ca).
