@@ -53,7 +53,7 @@
 				Supporting JavaScript for the web application is transpiled into runnable code from a TypeScript source file. The script accepts the maze data in JSON format, deserializes it into an object, and assigns CSS references to &lt;div&gt; elements in the grid area above in order to place graphical tiles in the proper order to render the maze visually. The PNG graphics are part of a sprite sheet for faster rendering.
 			</p>
 			<p>
-				The entire web application is packaged into a Docker container and is hosted on the web server, where it is assigned to port 5000. The web server is an Amazon Web Services EC2 instance running Ubuntu Linux, which also simultaneously runs Apache and the WordPress installation corresponding to my website.
+				The entire web application is packaged into a Docker container which can then be hosted in any standard cloud services application such as AWS or Heroku.
 			</p>
 			<p>
 				All of this was accomplished using Visual Studio Code and basic supporting tools on a Mac.
