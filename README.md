@@ -14,7 +14,7 @@ The maze generation algorithm is configurable and produces **fully-random** maze
 
 This project demonstrates my software design and coding abilities. I like to produce very clean, maintainable, **self-documenting** code that includes helpful **comments** explaining the more difficult concepts. The single best example of code in this project for review purposes is `Library/Maze.cs`, although the project is presented here in its entirety and should be easy to run using [**Visual Studio Code**](https://code.visualstudio.com/).
 
-The entire web application is packaged into a **Docker** container and is hosted in clous services such as AWS or Heroku.
+The entire web application is packaged into a **Docker** container, which can then hosted in cloud services such as AWS or Heroku.
 
 ### About the Maze Generation Algorithm
 
